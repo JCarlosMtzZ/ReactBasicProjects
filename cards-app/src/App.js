@@ -1,11 +1,30 @@
 import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 import Card from './components/Card.js';
+import Divider from './components/Divider.js';
+import Button from './components/Button.js';
+import Counter from './components/Counter.js';
 
 function App() {
+
+  const [numClicks, setNumClicks] = useState(0);
+
+  const handleClick = () => {
+    setNumClicks(numClicks + 1);
+  };
+  const resetCounter = () => {
+    setNumClicks(0);
+  };
+
   return (
     <div className="App">
       <div className='main-container'>
+        <Divider
+          bgColor='black'
+          color='white'
+          title='Here starts Cards-App'
+        />
         <h1>Here is what our alumni say about freeCodeCamp:</h1>
         <Card
           name='Emma Bostian'
@@ -34,6 +53,24 @@ function App() {
           testimony='freeCodeCamp fue la puerta de entrada a mi carrera como desarrollador de software. El plan de estudios bien estructurado llevó mis conocimientos de programación de un nivel de principiante total a un nivel muy seguro. Era todo lo que necesitaba para conseguir mi primer trabajo de desarrollador en una empresa increíble.'
           alt="SarahPhoto"
          />
+         <Divider
+          bgColor='lightBlue'
+          color='black'
+          title='Here starts Another-App'
+        />
+        <Counter
+          numClicks={numClicks}
+        />
+        <Button
+          text='Clic'
+          isClickButton={true}
+          handleClick={handleClick}
+        />
+        <Button
+          text='Reiniciar'
+          isClickButton={false}
+          handleClick={resetCounter}
+        />
       </div>
     </div>
   );

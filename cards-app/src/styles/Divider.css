@@ -1,0 +1,7 @@
+.divider-container {
+    width: 97.5vw;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
