@@ -1,0 +1,52 @@
+.card-container {
+    width: 90vw;
+    height: fit-content;
+    margin: 10px 10px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    box-shadow: 0 3px 13px 1px rgb(0 0 0 / 9%);
+}
+
+.card-img {
+    height: 100%;
+    width: auto;
+}
+
+.card-text-container {
+    text-align: center;
+    padding: 40px;
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+    line-height: 1.5rem;
+}
+
+.card-name {
+    font-size: 1.3rem;
+}
+
+.card-charge {
+    font-size: 1.3rem;
+    margin-top: 15px;
+    padding-bottom: 30px;
+}
+
+.card-text {
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+@media only screen and (max-width: 1000px) {
+    .card-container {
+        flex-direction: column;
+    }
+    .card-img {
+        width: 90vw;
+    }
+    
+}
+
+@media only screen and (min-width: 1000px) {
+    
+}
