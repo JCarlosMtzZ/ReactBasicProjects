@@ -5,6 +5,9 @@ import Card from './components/Card.js';
 import Divider from './components/Divider.js';
 import Button from './components/Button.js';
 import Counter from './components/Counter.js';
+import CalcButton from './components/CalcButton.js';
+import CalcScreen from './components/CalcScreen.js';
+import CalcClearButton from './components/CalcClearButton.js';
 
 function App() {
 
@@ -23,7 +26,7 @@ function App() {
         <Divider
           bgColor='black'
           color='white'
-          title='Here starts Cards-App'
+          title='Here starts Cards-Section'
         />
         <h1>Here is what our alumni say about freeCodeCamp:</h1>
         <Card
@@ -56,7 +59,7 @@ function App() {
          <Divider
           bgColor='lightBlue'
           color='black'
-          title='Here starts Another-App'
+          title='Here starts Counter-Section'
         />
         <Counter
           numClicks={numClicks}
@@ -71,6 +74,41 @@ function App() {
           isClickButton={false}
           handleClick={resetCounter}
         />
+        <Divider
+          bgColor='black'
+          color='white'
+          title='Here starts Calculator-Section'
+        />
+        <div className='calculator-container'>
+          <CalcScreen />
+          <div className='c-row'>
+            <CalcButton>1</CalcButton>
+            <CalcButton>2</CalcButton>
+            <CalcButton>3</CalcButton>
+            <CalcButton>+</CalcButton>
+          </div>
+          <div className='c-row'>
+            <CalcButton>4</CalcButton>
+            <CalcButton>5</CalcButton>
+            <CalcButton>6</CalcButton>
+            <CalcButton>-</CalcButton>
+          </div>
+          <div className='c-row'>
+            <CalcButton>7</CalcButton>
+            <CalcButton>8</CalcButton>
+            <CalcButton>9</CalcButton>
+            <CalcButton>*</CalcButton>
+          </div>
+          <div className='c-row'>
+            <CalcButton>=</CalcButton>
+            <CalcButton>0</CalcButton>
+            <CalcButton>.</CalcButton>
+            <CalcButton>/</CalcButton>
+          </div>
+          <div className='c-row'>
+            <CalcClearButton>Clear</CalcClearButton>
+          </div>
+        </div>
       </div>
     </div>
   );

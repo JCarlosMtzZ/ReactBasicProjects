@@ -35,3 +35,20 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+
+.calculator-container {
+  width: 400px;
+  height: 600px;
+  padding: 14px;
+  background-color: #99c9ff;
+  border-radius: 20px;
+  border: 5px solid black;
+  margin: 10px;
+}
+
+.c-row {
+  margin: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
