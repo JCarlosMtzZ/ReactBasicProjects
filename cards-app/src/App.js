@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import { useState } from 'react';
+import { evaluate } from 'mathjs';
 import './App.css';
 import Card from './components/Card.js';
 import Divider from './components/Divider.js';
@@ -12,12 +13,24 @@ import CalcClearButton from './components/CalcClearButton.js';
 function App() {
 
   const [numClicks, setNumClicks] = useState(0);
+  const [calcInput, setCalcInput] = useState('');
 
   const handleClick = () => {
     setNumClicks(numClicks + 1);
   };
   const resetCounter = () => {
     setNumClicks(0);
+  };
+
+  const addInput = val => {
+    setCalcInput(calcInput + val);
+  };
+  const clearInput = () => {
+    setCalcInput('');
+  };
+  const calculate = () => {
+    if (calcInput)
+      setCalcInput(evaluate(calcInput));
   };
 
   return (
@@ -80,33 +93,33 @@ function App() {
           title='Here starts Calculator-Section'
         />
         <div className='calculator-container'>
-          <CalcScreen />
+          <CalcScreen input={calcInput} />
           <div className='c-row'>
-            <CalcButton>1</CalcButton>
-            <CalcButton>2</CalcButton>
-            <CalcButton>3</CalcButton>
-            <CalcButton>+</CalcButton>
+            <CalcButton handleClick={addInput}>1</CalcButton>
+            <CalcButton handleClick={addInput}>2</CalcButton>
+            <CalcButton handleClick={addInput}>3</CalcButton>
+            <CalcButton handleClick={addInput}>+</CalcButton>
           </div>
           <div className='c-row'>
-            <CalcButton>4</CalcButton>
-            <CalcButton>5</CalcButton>
-            <CalcButton>6</CalcButton>
-            <CalcButton>-</CalcButton>
+            <CalcButton handleClick={addInput}>4</CalcButton>
+            <CalcButton handleClick={addInput}>5</CalcButton>
+            <CalcButton handleClick={addInput}>6</CalcButton>
+            <CalcButton handleClick={addInput}>-</CalcButton>
           </div>
           <div className='c-row'>
-            <CalcButton>7</CalcButton>
-            <CalcButton>8</CalcButton>
-            <CalcButton>9</CalcButton>
-            <CalcButton>*</CalcButton>
+            <CalcButton handleClick={addInput}>7</CalcButton>
+            <CalcButton handleClick={addInput}>8</CalcButton>
+            <CalcButton handleClick={addInput}>9</CalcButton>
+            <CalcButton handleClick={addInput}>*</CalcButton>
           </div>
           <div className='c-row'>
-            <CalcButton>=</CalcButton>
-            <CalcButton>0</CalcButton>
-            <CalcButton>.</CalcButton>
-            <CalcButton>/</CalcButton>
+            <CalcButton handleClick={calculate}>=</CalcButton>
+            <CalcButton handleClick={addInput}>0</CalcButton>
+            <CalcButton handleClick={addInput}>.</CalcButton>
+            <CalcButton handleClick={addInput}>/</CalcButton>
           </div>
           <div className='c-row'>
-            <CalcClearButton>Clear</CalcClearButton>
+            <CalcClearButton handleClick={clearInput}>Clear</CalcClearButton>
           </div>
         </div>
       </div>
